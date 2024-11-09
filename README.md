@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+# Stock Screener
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web-based stock screening tool inspired by Screener.in that allows users to filter and view stocks based on specific criteria.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Filter stocks based on multiple parameters:
+  - Market Capitalization
+  - P/E Ratio
+  - ROE (Return on Equity)
+  - Debt-to-Equity Ratio
+  - Dividend Yield
+  - Revenue Growth
+  - EPS Growth
+  - Current Ratio
+  - Gross Margin
+- AND-based logic for multiple conditions
+- Real-time filtering
+- Sortable results table
+- Pagination support
+- Responsive design
+- Custom query examples
+## Tech Stack
 
-### `npm start`
+- React.js
+- Tailwind CSS
+- Heroicons
+- JavaScript
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Before you begin, ensure you have the following installed:
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+```bash
+git clone https://github.com/AbhinavKRN/Stock_Screen.git
+cd stock-screener
+```
 
-### `npm run build`
+2. Install dependencies:
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Start the development server:
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Structure
 
-### `npm run eject`
+```
+stock-screener/
+├── src/
+│   ├── components/
+│   │   ├── ScreeningForm.js
+│   │   └── ResultsTable.js
+│   ├── data/
+│   │   └── stocks.js
+│   ├── utils/
+│   │   ├── filterStocks.js
+│   │   └── formatters.js
+│   ├── App.js
+│   └── index.js
+├── public/
+└── package.json
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Select a parameter from the dropdown (e.g., Market Capitalization)
+2. Choose an operator (>, <, =, >=, <=)
+3. Enter a value
+4. Click "AND" to add more conditions if needed
+5. Click "RUN THIS QUERY" to see the results
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Example Query:
+```
+Market Capitalization > 500 AND
+Price to earning < 15 AND
+Return on capital employed > 22%
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Configuration
 
-## Learn More
+The stock data can be configured in `src/data/stocks.js`. You can modify the existing data or add your own stock entries following the same structure:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```javascript
+{
+  "Ticker": "STK1",
+  "Market Capitalization": 187.9,
+  "P/E Ratio": 36.42,
+  "ROE": -8.89,
+  "Debt-to-Equity Ratio": 1.04,
+  "Dividend Yield": 1.31,
+  "Revenue Growth": 23.1,
+  "EPS Growth": 10.18,
+  "Current Ratio": 1.22,
+  "Gross Margin": 50.04
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deployment
 
-### Code Splitting
+To build the project for production:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm run build
+```
 
-### Analyzing the Bundle Size
+This will create a `build` folder with production-ready files.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contributing
 
-### Making a Progressive Web App
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License
 
-### Advanced Configuration
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Acknowledgments
 
-### Deployment
+- Inspired by [Screener.in](https://www.screener.in)
+- UI components from Tailwind CSS
+- Icons from Heroicons
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contact
 
-### `npm run build` fails to minify
+Your Name - your.email@example.com
+Project Link: [https://github.com/AbhinavKRN/Stock_Screen](https://github.com/AbhinavKRN/Stock_Screen)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Support
+
+If you found this project helpful, please give it a ⭐️!
