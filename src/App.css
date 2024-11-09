@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.stock-screener {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 2rem 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.form-container {
+  animation: slideDown 0.3s ease-out;
 }
 
-@keyframes App-logo-spin {
+.results-container {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+}
+
+.scrollable-container {
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .filter-row {
+    @apply flex-col;
+  }
+
+  .filter-row > * {
+    @apply w-full mb-2;
+  }
+
+  .filter-actions {
+    @apply flex justify-end;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none;
+  }
+
+  .stock-screener {
+    padding: 0;
+  }
+
+  .results-table {
+    width: 100%;
+    page-break-inside: avoid;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark-mode-compatible {
+    @apply bg-gray-900 text-white;
+  }
+
+  .dark-mode-compatible input,
+  .dark-mode-compatible select {
+    @apply bg-gray-800 border-gray-700 text-white;
+  }
+
+  .dark-mode-compatible .table-row-alt {
+    @apply bg-gray-800;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
 }
